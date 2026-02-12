@@ -13,6 +13,16 @@ app.use(express.json());
 const sdk = new Bytez('d4f2d51055d7919829aa14f1cfe4ceae');
 const model = sdk.model('stabilityai/stable-diffusion-xl-base-1.0');
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ message: 'Dream Journal API is running' });
+});
+
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', message: 'Server is healthy' });
+});
+
 // API endpoint to generate images
 app.post('/api/generate', async (req, res) => {
   try {
