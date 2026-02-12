@@ -38,7 +38,13 @@ app.post('/api/generate', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Proxy server running on http://localhost:${PORT}`);
-  console.log(`React app should call http://localhost:${PORT}/api/generate`);
-});
+// Export for Vercel
+module.exports = app;
+
+// Keep this for local development
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`🚀 Proxy server running on http://localhost:${PORT}`);
+    console.log(`React app should call http://localhost:${PORT}/api/generate`);
+  });
+}
