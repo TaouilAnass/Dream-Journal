@@ -40,7 +40,7 @@ Installation
 
 Clone the repository
 
-git clone https://github.com/your-username/dream-journal.git
+git clone https://github.com/your-username/Dream-Journal.git
 cd dream-journal
 
 
